@@ -7,7 +7,7 @@
     "configure": "sudo chmod -R 777 ./scripts/configure-dev.sh && ./scripts/configure-dev.sh",
     "dev": "docker start mongonode && nodemon src/server.ts",
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "test": "jest --watchAll"
+    "test": "NODE_ENV=test jest --watchAll"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
