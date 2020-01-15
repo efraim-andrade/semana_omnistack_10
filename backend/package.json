@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "configure": "sudo chmod -R 777 ./scripts/configure-dev.sh && ./scripts/configure-dev.sh",
+    "dev": "docker start mongonode && nodemon src/server.ts",
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
     "test": "jest --watchAll"
   },

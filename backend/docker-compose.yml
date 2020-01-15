@@ -1,0 +1,7 @@
+version: "3"
+services:
+  mongonode:
+    image: mongo
+    container_name: omnistack
+    ports:
+      - "27017:27017"
