@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import axios from 'axios'
 
 import Dev, { DevInterface } from '../models/Dev'
+import { parseStringAsArray } from '../functions'
 
 interface RequestParams {
   github_username: string,
@@ -31,7 +32,7 @@ class DevController {
 
       const { name, avatar_url, bio } = response.data
 
-      const techsArray = techs.split(',').map((tech: string) => tech.trim())
+      const techsArray = parseStringAsArray(techs)
 
       const location = {
         type: 'Point',
