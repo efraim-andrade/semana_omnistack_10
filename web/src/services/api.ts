@@ -1,10 +1,7 @@
 import axios from 'axios';
-import { makeUseAxios } from 'axios-hooks';
 
-const apiEndpoint = 'https://swapi.co/api';
+const apiEndpoint = 'http://localhost:3333/';
 
-export default makeUseAxios({
-  axios: axios.create({
-    baseURL: apiEndpoint,
-  }),
+export default axios.create({
+  baseURL: apiEndpoint,
 });

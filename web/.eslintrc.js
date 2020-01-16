@@ -6,7 +6,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ['react-app', 'plugin:@typescript-eslint/recommended', 'airbnb'],
+  extends: ['plugin:@typescript-eslint/recommended', 'airbnb'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -51,6 +51,9 @@ module.exports = {
     'import/extensions': 'off',
     'arrow-parens': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    '@typescript-eslint/camelcase': 'off',
+    camelcase: 'off',
   },
   settings: {
     'import/parsers': {

@@ -16,6 +16,8 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+
+    background: #e5e6f0;
   }
 
   body {
@@ -30,7 +32,7 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  ul {
+  ul, li {
     list-style: none;
   }
 
