@@ -1,4 +1,4 @@
-import ExampleComponent from './ExampleComponent';
 import DevCard from './DevCard';
+import DevForm from './DevForm';
 
-export { ExampleComponent, DevCard };
+export { DevCard, DevForm };

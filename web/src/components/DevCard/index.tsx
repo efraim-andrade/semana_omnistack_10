@@ -1,26 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function DevCard() {
+import { DevInterface } from '../../../../backend/src/models/Dev';
+
+export type Props = {
+  dev?: DevInterface;
+}
+
+
+export default function DevCard({ dev }: Props) {
   return (
     <Container>
       <header>
         <img
           alt="Github Profile Avatar"
           title="Github Profile Avatar"
-          src="https://avatars1.githubusercontent.com/u/28229600?s=460&v=4"
+          src={dev?.avatar_url}
         />
 
         <div className="user-info">
-          <strong>Efraim Andrade</strong>
+          <strong>{dev?.name}</strong>
 
-          <span>ReactJS, React Native, NodeJS</span>
+          <span>{dev?.techs?.join(', ')}</span>
         </div>
       </header>
 
-      <p>Mobile e Front-end Developer</p>
+      <p>{dev?.bio}</p>
 
-      <a href="https://github.com/efraim-andrade">Acessar perfil no Github</a>
+      <a href={`https://github.com/${dev?.github_username}`}>Acessar perfil no Github</a>
     </Container>
   );
 }

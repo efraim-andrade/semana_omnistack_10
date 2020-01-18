@@ -54,6 +54,8 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     '@typescript-eslint/camelcase': 'off',
     camelcase: 'off',
+    'no-underscore-dangle': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
   settings: {
     'import/parsers': {
