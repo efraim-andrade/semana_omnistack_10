@@ -5,6 +5,7 @@ import MapView, { Marker, Callout, Region } from 'react-native-maps'
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 
 import api from '../../services/api'
+import socket from '../../services/socket'
 import { DevInterface } from '../../../../backend/src/models/Dev'
 
 export default function Main({ navigation }) {
@@ -34,6 +35,22 @@ export default function Main({ navigation }) {
     loadInitialPosition()
   })
 
+  useEffect(() => {
+    socket.subscribeToNewDevs((dev: DevInterface) => setDevs([...devs, dev]))
+  }, [devs])
+
+  function setupWebSocket() {
+    socket.disconnect()
+
+    const { latitude, longitude } = currentRegion
+
+    socket.connect(
+      latitude,
+      longitude,
+      techs
+    )
+  }
+
   async function loadDevs() {
     const { latitude, longitude } = currentRegion
 
@@ -47,6 +64,7 @@ export default function Main({ navigation }) {
       })
 
       setDevs(data)
+      setupWebSocket();
     } catch (error) {
       console.log('algo deu errado')
     }

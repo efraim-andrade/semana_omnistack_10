@@ -3,11 +3,11 @@ import { Schema, model, Document } from 'mongoose'
 import PointSchema, { PointInterface } from './utils/PointSchema'
 
 export interface DevInterface extends Document {
-  name?: string
+  name: string
   github_username: string
-  bio?: string
-  avatar_url?: string
-  techs?: string[]
+  bio: string
+  avatar_url: string
+  techs: string[]
   location: PointInterface
 }
 

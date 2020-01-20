@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Dev, { DevInterface } from '../models/Dev'
 import { parseStringAsArray } from '../functions'
+import { findConnections, sendMessage } from '../websocket'
 
 interface RequestParams {
   github_username: string,
@@ -47,6 +48,15 @@ class DevController {
         techs: techsArray,
         location
       })
+
+      const sendSocketMessageTo = findConnections(
+        {
+          latitude,
+          longitude
+        }, techsArray
+      )
+
+      sendMessage(sendSocketMessageTo, 'new-dev', dev)
 
       return res.json(dev)
     } catch (error) {
